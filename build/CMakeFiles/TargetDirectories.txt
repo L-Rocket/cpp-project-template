@@ -1,0 +1,4 @@
+/Users/lea/code/cpp/test/build/CMakeFiles/test.dir
+/Users/lea/code/cpp/test/build/CMakeFiles/test_main.dir
+/Users/lea/code/cpp/test/build/CMakeFiles/edit_cache.dir
+/Users/lea/code/cpp/test/build/CMakeFiles/rebuild_cache.dir
