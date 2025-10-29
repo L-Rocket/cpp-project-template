@@ -11,15 +11,8 @@
 
 ## 快速开始
 
-1. 在 `src/` 里添加你的 C++ 源文件。
-2. 在 `include/` 里添加头文件。
-3. 用 CMake 构建项目。
-
-```bash
-mkdir build
-cd build
-cmake ..
-make
-```
 
 4. 在 `tests/` 里添加测试代码。
+
+# 更新CmakeList.txt
+python3 ./update_cmake.py 
