@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.12)
 project(main LANGUAGES CXX)
 
 include(CTest)
-include(FetchContent)
 
 set(MAIN_SOURCE src/main.cpp)
 
@@ -17,16 +16,6 @@ target_include_directories(main PRIVATE include)
 target_compile_features(main PRIVATE cxx_std_17)
 
 if(BUILD_TESTING)
-	FetchContent_Declare(
-		googletest
-		URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
-		DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-	)
-	set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-	FetchContent_MakeAvailable(googletest)
-
-	include(GoogleTest)
-
 	file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS
 		tests/*.cpp
 	)
@@ -46,7 +35,6 @@ if(BUILD_TESTING)
 		add_executable(${test_target} ${test_src} ${PROJECT_COMMON_SOURCES})
 		target_include_directories(${test_target} PRIVATE include)
 		target_compile_features(${test_target} PRIVATE cxx_std_17)
-		target_link_libraries(${test_target} PRIVATE GTest::gtest_main)
-		gtest_discover_tests(${test_target})
+		add_test(NAME ${test_target} COMMAND ${test_target})
 	endforeach()
 endif()
