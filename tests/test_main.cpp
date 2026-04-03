@@ -1,9 +1,13 @@
 #include "example.hpp"
-#include <cassert>
+#include "math/ops.hpp"
+#include <gtest/gtest.h>
 #include <vector>
 
-int main() {
+TEST(SumTest, HandlesSimpleSequence) {
     std::vector<int> nums = {1, 2, 3};
-    assert(sum(nums) == 6);
-    return 0;
+    EXPECT_EQ(sum(nums), 6);
+}
+
+TEST(MathOpsTest, HandlesMultiply) {
+    EXPECT_EQ(multiply(3, 4), 12);
 }
